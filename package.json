@@ -1,0 +1,31 @@
+{
+  "name": "csv-to-wp-importer",
+  "version": "1.0.0",
+  "description": "Import architects and buildings data from CSV to WordPress",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "import-architects": "node index.js --type=architects --file=./data/architects.csv",
+    "import-buildings": "node index.js --type=buildings --file=./data/buildings.csv",
+    "import-all": "node index.js --type=all"
+  },
+  "keywords": [
+    "wordpress",
+    "csv",
+    "import"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "csv-parse": "^5.6.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "figlet": "^1.7.0",
+    "form-data": "^4.0.0",
+    "ora": "^8.0.1"
+  }
+}

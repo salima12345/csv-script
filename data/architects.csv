@@ -1,0 +1,7 @@
+name,image_url,description,education_school,education_lat,education_lng,office_name,office_lat,office_lng
+Zaha Hadid,https://example.com/zaha-hadid.jpg,British-Iraqi architect known for her radical deconstructivist designs,Architectural Association School of Architecture,51.5152,-0.1422,Zaha Hadid Architects,51.5209,-0.1402
+Norman Foster,https://example.com/norman-foster.jpg,English architect known for sleek modernist designs,Yale School of Architecture,41.3163,-72.9223,Foster + Partners,51.5007,-0.1246
+Jean Nouvel,https://example.com/jean-nouvel.jpg,French architect who studied the concept of space and light,École nationale supérieure des Beaux-Arts,48.8588,2.3470,Ateliers Jean Nouvel,48.8744,2.3526
+Khadija Alaoui,https://example.com/khadija-alaoui.jpg,Moroccan architect known for blending traditional and modern designs,National School of Architecture,33.5731,-7.5898,Alaoui Architecture,33.5883,-7.6115
+Hassan Fathy,https://example.com/hassan-fathy.jpg,Egyptian architect who pioneered sustainable architecture in North Africa,University of Cairo,30.0444,31.2357,Fathy & Associates,30.0469,31.2353
+Elie Mouyal,https://example.com/elie-mouyal.jpg,Moroccan architect known for urban developments in Marrakech,École Spéciale d'Architecture de Paris,48.8363,2.3352,Mouyal Architects,31.6295,-7.9811

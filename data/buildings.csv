@@ -1,0 +1,7 @@
+name,images,year_built,architect_name,city,region,description,latitude,longitude
+Royal Mansour Hotel,"https://example.com/mansour1.jpg,https://example.com/mansour2.jpg",2010,Khadija Alaoui,Marrakech,Marrakech-Safi,Luxury hotel built by King Mohammed VI showcasing the best of Moroccan craftsmanship,31.6321,-7.9905
+Mohammed VI Tower,"https://example.com/m6tower1.jpg,https://example.com/m6tower2.jpg",2022,Norman Foster,Rabat,Rabat-Sale-Kenitra,The tallest building in Morocco and Africa,34.0108,-6.8498
+Casablanca Finance City Tower,https://example.com/cfc-tower.jpg,2019,Jean Nouvel,Casablanca,Casablanca-Settat,Modern skyscraper that serves as the headquarters for Casablanca's financial district,33.5950,-7.6368
+Menara Airport Terminal,https://example.com/menara-airport.jpg,2008,Zaha Hadid,Marrakech,Marrakech-Safi,Striking airport terminal with a design inspired by Islamic patterns,31.6078,-8.0356
+Anfa Place,"https://example.com/anfa1.jpg,https://example.com/anfa2.jpg",2013,Norman Foster,Casablanca,Casablanca-Settat,Mixed-use development including residential apartments with views of the Atlantic Ocean,33.5876,-7.6546
+Tangier Grand Theatre,https://example.com/theatre-tangier.jpg,2019,Jean Nouvel,Tangier,Tangier-Tetouan-Al Hoceima,Cultural center designed to resemble the caves of Hercules,35.7641,-5.8032
