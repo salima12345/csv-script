@@ -13,19 +13,19 @@ export async function importArchitects(csvFilePath, dryRun = false) {
       trim: true
     });
     console.log(chalk.green(`✔ ${architects.length} architectes trouvés dans le CSV`));
-
+    
     // 2. Validation simple
     architects.forEach(architect => {
       if (!architect.name) throw new Error(`Nom manquant: ${JSON.stringify(architect)}`);
       architect.name = String(architect.name).trim();
     });
-
+    
     // 3. Récupérer les existants - Using custom endpoint
     const existingResponse = await axios.get(
       `${process.env.WP_API_URL}/morocco-architecture/v1/architects`
     );
     const existingArchitects = existingResponse.data;
-
+    
     // 4. Importer les données
     let created = 0, updated = 0, skipped = 0, errors = 0;
     for (const [index, architect] of architects.entries()) {
@@ -35,7 +35,25 @@ export async function importArchitects(csvFilePath, dryRun = false) {
           skipped++;
           continue;
         }
-
+        
+        // Format education data as a JSON structure
+        const educationData = {
+          school: architect.education_school || '',
+          position: {
+            lat: parseFloat(architect.education_lat) || 0,
+            lng: parseFloat(architect.education_lng) || 0
+          }
+        };
+        
+        // Format office location data as a JSON structure
+        const officeData = {
+          office: architect.office_name || '',
+          position: {
+            lat: parseFloat(architect.office_lat) || 0,
+            lng: parseFloat(architect.office_lng) || 0
+          }
+        };
+        
         // Format data for our custom endpoint
         const postData = {
           title: architect.name,
@@ -43,16 +61,15 @@ export async function importArchitects(csvFilePath, dryRun = false) {
           architect_name: architect.name,
           architect_description: architect.description || '',
           architect_image_url: architect.image_url || '',
-          // Parse the education and office_locations if they are JSON strings
-          architect_education: architect.education || '{}',
-          architect_office_locations: architect.office_locations || '{}'
+          architect_education: JSON.stringify(educationData),
+          architect_office_locations: JSON.stringify(officeData)
         };
-
+        
         // Find existing architect by name instead of title.rendered
         const existing = existingArchitects.find(a => 
           a.name.toLowerCase() === architect.name.toLowerCase()
         );
-
+        
         // Use custom endpoints for POST/PUT
         if (existing) {
           await axios.put(
@@ -77,7 +94,7 @@ export async function importArchitects(csvFilePath, dryRun = false) {
         }
       }
     }
-
+    
     // 5. Résumé
     console.log(chalk.bold('\nRésultat:'));
     console.log(chalk.green(`- Créés: ${created}`));
@@ -95,12 +112,12 @@ if (import.meta.url === import.meta.main) {
   const args = process.argv.slice(2);
   const csvPath = args[0];
   const dryRun = args.includes('--dry-run');
-
+  
   if (!csvPath) {
     console.log(chalk.red('Usage: node script.js path/to/architects.csv [--dry-run]'));
     process.exit(1);
   }
-
+  
   importArchitects(csvPath, dryRun)
     .then(() => console.log(chalk.green('Import process completed!')))
     .catch((err) => {
